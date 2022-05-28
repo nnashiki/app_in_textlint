@@ -12,8 +12,7 @@ function lintFile(filePath) {
     const filePathList = [path.resolve(process.cwd(), filePath)];
     return engine.executeOnFiles(filePathList).then(function (results) {
         if (engine.isErrorResults(results)) {
-            const output = engine.formatResults(results);
-            console.log(output);
+            console.log(results[0].messages)
         } else {
             console.log("All Passed!");
         }
