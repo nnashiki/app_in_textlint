@@ -1,8 +1,7 @@
-// LICENSE : MIT
-"use strict";
-const TextLintEngine = require("textlint").TextLintEngine;
-const path = require("path");
-function lintFile(filePath) {
+import { TextLintEngine } from "textlint";
+import * as path from 'path';
+
+const lintFile = (filePath) => {
     const options = {
         // load rules from [../rules]
         rules: ["prh"],
