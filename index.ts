@@ -10,7 +10,7 @@ const lintFile = (filePath) => {
             "prh": {
               "rulePaths" :[path.join(__dirname, "./prh.yml")]
             },
-          },
+        },
     };
     const engine = new TextLintEngine(options);
     const filePathList = [path.resolve(process.cwd(), filePath)];
