@@ -1,7 +1,8 @@
 import { TextLintEngine } from "textlint";
 import * as path from 'path';
+//import { TextlintResult } from "@textlint/kernel";
 
-const lintFile = (filePath) => {
+export const lintText = (text: string) => {
     const options = {
         // load rules from [../rules]
         rules: ["prh"],
@@ -13,17 +14,12 @@ const lintFile = (filePath) => {
         },
     };
     const engine = new TextLintEngine(options);
-    const filePathList = [path.resolve(process.cwd(), filePath)];
-    return engine.executeOnFiles(filePathList).then(function (results) {
+    return engine.executeOnText(text).then(function (results) {
         if (engine.isErrorResults(results)) {
             console.log(results[0].messages)
+            return results
         } else {
             console.log("All Passed!");
         }
     });
 }
-
-lintFile(`${__dirname}/target_doc.md`).catch(function (error) {
-    console.error(error);
-    process.exit(1);
-});
