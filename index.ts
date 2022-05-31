@@ -5,7 +5,12 @@ const lintFile = (filePath) => {
     const options = {
         // load rules from [../rules]
         rules: ["prh"],
-        formatterName: "pretty-error"
+        formatterName: "pretty-error",
+        rulesConfig: {
+            "prh": {
+              "rulePaths" :[path.join(__dirname, "./prh.yml")]
+            },
+          },
     };
     const engine = new TextLintEngine(options);
     const filePathList = [path.resolve(process.cwd(), filePath)];

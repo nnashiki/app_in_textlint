@@ -2,7 +2,7 @@
 textlint を組み込んだ web アプリ
 
 ```
-$ node index.js
+$ npm run start
 [
   {
     type: 'lint',
