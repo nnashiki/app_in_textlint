@@ -1,8 +1,8 @@
 import { TextLintEngine } from "textlint";
 import * as path from 'path';
-//import { TextlintResult } from "@textlint/kernel";
+import { TextlintResult } from "@textlint/kernel";
 
-export const lintText = (text: string) => {
+export const lintText = async(text: string): Promise<TextlintResult[]> => {
     const options = {
         // load rules from [../rules]
         rules: ["prh"],
@@ -23,3 +23,4 @@ export const lintText = (text: string) => {
         }
     });
 }
+
