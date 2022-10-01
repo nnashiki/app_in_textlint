@@ -1,18 +1,21 @@
-import { TextLintEngine } from "textlint";
+import {TextLintEngine} from "textlint";
 import * as path from 'path';
-import { TextlintResult } from "@textlint/kernel";
+import {TextlintResult} from "@textlint/kernel";
 
-export const lintText = async(text: string): Promise<TextlintResult[]> => {
-    const options = {
-        // load rules from [../rules]
+const options = {
         rules: ["prh"],
         formatterName: "pretty-error",
         rulesConfig: {
             "prh": {
-              "rulePaths" :[path.join(__dirname, "./prh.yml")]
+                "rulePaths": [
+                    path.join(__dirname, "./prh1.yml"),
+                    path.join(__dirname, "./prh2.yml"),
+                ]
             },
         },
     };
+
+export const lintText = async (text: string, options): Promise<TextlintResult[]> => {
     const engine = new TextLintEngine(options);
     return engine.executeOnText(text).then(function (results) {
         if (engine.isErrorResults(results)) {
@@ -20,6 +23,7 @@ export const lintText = async(text: string): Promise<TextlintResult[]> => {
             return results
         } else {
             console.log("All Passed!");
+            return []
         }
     });
 }

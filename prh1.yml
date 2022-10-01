@@ -11,14 +11,6 @@ rules:
   #     wordBoundary: false
   #   specs: []
 
-  # Write test to `expect`
-  - expected: jQuery
-    specs:
-      - from: jquery
-        to:   jQuery
-      - from: ＪＱＵＥＲＹ
-        to:   jQuery
-
 # If the `specs` is failed、fail to load prh.yml
 # - expected: JavaScript
 #   specs:

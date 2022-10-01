@@ -1,0 +1,11 @@
+# prh version
+version: 1
+rules:
+
+  # Write test to `expect`
+  - expected: jQuery
+    specs:
+      - from: jquery
+        to:   jQuery
+      - from: ＪＱＵＥＲＹ
+        to:   jQuery
